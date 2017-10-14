@@ -28,14 +28,14 @@ def word_transformer(word):
     else:
         return word[0]
         
-def process_madlib_N(mad_lib):
-    if mad_lib.find("NOUN") > -1:
+def process_madlib_N(madlib):
+    if madlib.find("NOUN") > -1:
         return madlib.replace("NOUN",word_transformer("NOUN"))
     else:
-        return mad_lib
+        return madlib
         
 def process_madlib(madlib):
-    r = process_madlib_N(mad_lib)
+    r = process_madlib_N(madlib)
     if r.find("VERB") > -1:
         return r.replace("VERB",word_transformer("VERB"))
     else:
