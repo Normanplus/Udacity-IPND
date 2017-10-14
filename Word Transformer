@@ -24,7 +24,7 @@ def word_transformer(word):
     if word == "VERB":
         return random_verb
     else:
-        return word.str[0]
+        return word[0]
 print word_transformer("word")
 
     # your code here
