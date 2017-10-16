@@ -35,11 +35,19 @@ def process_madlib_N(madlib):
         return madlib
         
 def process_madlib(madlib):
-    r = process_madlib_N(madlib)
-    if r.find("VERB") > -1:
-        return r.replace("VERB",word_transformer("VERB"))
-    else:
-        return r
+    processed =""
+    index = 0
+    box_length = 4
+    while index < len(madlib):
+        frame = madlib[index: index + box_length]
+        to_add = word_transformer(frame)
+        processed = processed + to_add
+        if len(to_add) == 1:
+            index = index + 1
+        else:
+            index = index +4
+    return processed
+    
     # your code here
     # you may find the built-in len function useful for this quiz
     # documentation: https://docs.python.org/2/library/functions.html#len
